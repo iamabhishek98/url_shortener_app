@@ -6,7 +6,7 @@ const { findOriginalUrl, insertUrl } = require("../db/queries");
 const BASE_URL = process.env.BASE_URL || "http://localhost:5000";
 
 module.exports = ({ server }) => {
-  server.post("/", async (req, res) => {
+  server.post("/url", async (req, res) => {
     try {
       const { originalUrl } = req.body;
 

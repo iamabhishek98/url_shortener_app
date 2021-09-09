@@ -1,6 +1,6 @@
 const successHandler = (res, url) => {
   return res.status(200).json({
-    new_url: url,
+    url: url,
   });
 };
 
