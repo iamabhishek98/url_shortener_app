@@ -2,7 +2,7 @@ const { findUrlCode } = require("../db/queries");
 const { errorHandler } = require("../lib/response_utility");
 
 module.exports = ({ server }) => {
-  server.get("/url/:urlCode", async (req, res) => {
+  server.get("/:urlCode", async (req, res) => {
     try {
       const { urlCode } = req.params;
 
