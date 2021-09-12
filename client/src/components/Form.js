@@ -3,7 +3,8 @@ import axios from "axios";
 import { useState } from "react";
 require("dotenv").config();
 
-const API_SERVER_URL = process.env.API_SERVER_URL || "http://localhost:5000";
+const REACT_APP_API_SERVER_URL =
+  process.env.REACT_APP_API_SERVER_URL || "http://localhost:5000";
 
 const useStyles = makeStyles((theme) => ({
   blueButton: {
@@ -34,7 +35,7 @@ const Form = () => {
 
   const createUrl = () => {
     axios
-      .post(`${API_SERVER_URL}/url`, { originalUrl: url })
+      .post(`${REACT_APP_API_SERVER_URL}/url`, { originalUrl: url })
       .then((res) => {
         if (res.status === 200) {
           setUrlError("");

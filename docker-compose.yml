@@ -6,7 +6,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - API_SERVER_URL=http://localhost:5000
+      - REACT_APP_API_SERVER_URL=http://localhost:5000
     networks:
       - url-shortener-app
   server:
