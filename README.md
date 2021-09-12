@@ -1,6 +1,6 @@
 # URL Shortener
 
-Live Demo (Hosted by AWS): http://ec2-18-209-66-43.compute-1.amazonaws.com/
+Live Demo (Hosted by AWS): http://shorturl.hopto.org/
 
 This is a web application which allows users to easily shorten their URLs similar to https://bitly.com/.
 
