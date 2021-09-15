@@ -1,4 +1,4 @@
-const { findUrlCode } = require("../db/queries");
+const { findUrlCode, validateUrl, invalidateUrl } = require("../db/queries");
 const { errorHandler } = require("../lib/response_utility");
 
 module.exports = ({ server }) => {
@@ -11,6 +11,20 @@ module.exports = ({ server }) => {
       if (!existingUrlCode) {
         throw "Url not found!";
       }
+
+      if (existingUrlCode.expired) {
+        throw "Url not valid!";
+      }
+      if (
+        new Date().getTime() -
+          new Date(existingUrlCode.lastAccessedAt).getTime() >
+        10000
+      ) {
+        await invalidateUrl(existingUrlCode.urlCode);
+        throw "Url has expired";
+      }
+
+      await validateUrl(existingUrlCode.urlCode);
 
       return res.redirect(existingUrlCode.originalUrl);
     } catch (err) {
